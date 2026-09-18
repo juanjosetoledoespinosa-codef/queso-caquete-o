@@ -109,9 +109,33 @@
             <a href="#catalogo" class="bg-amber-500 hover:bg-amber-600 text-amazon-900 font-bold px-8 py-3.5 rounded-xl transition duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 text-base">
                 <i class="fa-solid fa-store"></i> Explorar Catálogo Lácteo
             </a>
-            <a href="#recomendaciones" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/30 backdrop-blur transition duration-300 flex items-center gap-2 text-base">
-                <i class="fa-solid fa-circle-check"></i> Recomendaciones de Compra
+            <a href="#video-destacado" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/30 backdrop-blur transition duration-300 flex items-center gap-2 text-base">
+                <i class="fa-solid fa-play"></i> Ver Nuestro Video
             </a>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de Video Destacado de YouTube -->
+<section id="video-destacado" class="py-12 bg-amazon-50 border-b border-amazon-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center gap-2 bg-amazon-100 text-amazon-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-2">
+                <i class="fa-brands fa-youtube text-red-600"></i> Video Institucional
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-amazon-900">Conoce el Queso Caqueteño en Acción</h2>
+            <p class="text-gray-600 text-sm sm:text-base mt-1">Descubre la tradición, proceso y valor sostenible detrás de nuestros productos.</p>
+        </div>
+        
+        <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-black aspect-video">
+            <iframe 
+                class="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/bxD_-Tpo30A" 
+                title="Queso Caqueteño YouTube Video" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
         </div>
     </div>
 </section>
@@ -183,11 +207,11 @@
 
             <!-- Categorías / Filtros -->
             <div class="flex flex-wrap gap-2" id="filter-buttons">
-                <button onclick="filterProducts('all')" class="filter-btn bg-amazon-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow-sm">Todos (14)</button>
-                <button onclick="filterProducts('dop')" class="filter-btn bg-white text-gray-700 hover:bg-amazon-100 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 transition">Quesos D.O.P.</button>
-                <button onclick="filterProducts('especiales')" class="filter-btn bg-white text-gray-700 hover:bg-amazon-100 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 transition">Especiales</button>
-                <button onclick="filterProducts('dulces')" class="filter-btn bg-white text-gray-700 hover:bg-amazon-100 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 transition">Dulces y Mantequilla</button>
-                <button onclick="filterProducts('lacteos')" class="filter-btn bg-white text-gray-700 hover:bg-amazon-100 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 transition">Bebidas y Cremas</button>
+                <button onclick="filterProducts('all', event)" class="filter-btn bg-amazon-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow-sm">Todos (14)</button>
+                <button onclick="filterProducts('dop', event)" class="filter-btn bg-white text-gray-700 hover:bg-amazon-100 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 transition">Quesos D.O.P.</button>
+                <button onclick="filterProducts('especiales', event)" class="filter-btn bg-white text-gray-700 hover:bg-amazon-100 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 transition">Especiales</button>
+                <button onclick="filterProducts('dulces', event)" class="filter-btn bg-white text-gray-700 hover:bg-amazon-100 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 transition">Dulces y Mantequilla</button>
+                <button onclick="filterProducts('lacteos', event)" class="filter-btn bg-white text-gray-700 hover:bg-amazon-100 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 transition">Bebidas y Cremas</button>
             </div>
         </div>
 
@@ -389,7 +413,7 @@
             minWholesale: 12,
             discountPercent: 15,
             image: 'https://images.unsplash.com/photo-1571212515416-fef01fc43637?auto=format&fit=crop&w=600&q=80',
-            ingredients: 'Leche entera fermentada naturalmente, fermentos lácticos vivos, sal marina.',
+            ingredients: 'Leche entera fermentada naturally, fermentos lácticos vivos, sal marina.',
             desc: 'Textura cremosa y sabor ligeramente ácido. El acompañante perfecto de arepas y yuca cocida.'
         },
         {
@@ -542,7 +566,7 @@
     }
 
     // Filtrar productos por categoría
-    function filterProducts(category) {
+    function filterProducts(category, event) {
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.classList.remove('bg-amazon-600', 'text-white');
             btn.classList.add('bg-white', 'text-gray-700');
@@ -556,6 +580,12 @@
             const filtered = products.filter(p => p.category === category);
             renderProducts(filtered);
         }
+    }
+
+    // Abrir/Cerrar Modal de Carrito
+    function toggleCartModal() {
+        const modal = document.getElementById('cart-modal');
+        modal.classList.toggle('hidden');
     }
 
     // Agregar ítem al carrito
@@ -622,87 +652,68 @@
             const itemSubtotal = item.price * item.quantity;
             subtotal += itemSubtotal;
 
-            // Verificación de descuento al por mayor
             const hasWholesale = item.quantity >= item.minWholesale;
             const itemDiscount = hasWholesale ? (itemSubtotal * (item.discountPercent / 100)) : 0;
             totalDiscount += itemDiscount;
 
-            const itemFinal = itemSubtotal - itemDiscount;
-
-            const cartRow = document.createElement('div');
-            cartRow.className = "flex gap-3 bg-cream-50 p-3 rounded-xl border border-amber-200/50 items-center";
-            cartRow.innerHTML = `
-                <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-lg">
-                <div class="flex-grow">
-                    <h4 class="font-bold text-sm text-amazon-900 leading-tight">${item.name}</h4>
-                    <span class="text-xs text-gray-500">${formatCOP(item.price)} c/u</span>
-                    ${hasWholesale ? `
-                        <span class="block text-[10px] text-emerald-700 font-bold"><i class="fa-solid fa-tag"></i> ¡Dcto Mayorista ${item.discountPercent}% aplicado!</span>
-                    ` : `
-                        <span class="block text-[10px] text-gray-400">Te faltan ${item.minWholesale - item.quantity} unds para descuento</span>
-                    `}
-                    <div class="text-sm font-extrabold text-amazon-900 mt-0.5">${formatCOP(itemFinal)}</div>
-                </div>
-
-                <div class="flex flex-col items-center gap-1">
-                    <div class="flex items-center border border-gray-300 rounded-lg bg-white">
-                        <button onclick="changeQuantity(${item.id}, -1)" class="px-2 py-0.5 text-gray-600 hover:bg-gray-100 rounded-l-lg font-bold">-</button>
-                        <span class="px-2 text-xs font-bold">${item.quantity}</span>
-                        <button onclick="changeQuantity(${item.id}, 1)" class="px-2 py-0.5 text-gray-600 hover:bg-gray-100 rounded-r-lg font-bold">+</button>
+            const itemEl = document.createElement('div');
+            itemEl.className = "flex items-center justify-between p-3 bg-cream-50 rounded-xl border border-amber-100";
+            itemEl.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <img src="${item.image}" alt="${item.name}" class="w-12 h-12 rounded-lg object-cover">
+                    <div>
+                        <h4 class="text-sm font-bold text-amazon-900 leading-tight">${item.name}</h4>
+                        <span class="text-xs text-gray-500">${formatCOP(item.price)} c/u</span>
+                        ${hasWholesale ? `<span class="block text-[10px] text-emerald-700 font-bold">Desc. ${item.discountPercent}% Aplicado!</span>` : ''}
                     </div>
                 </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="changeQuantity(${item.id}, -1)" class="w-7 h-7 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold text-xs flex items-center justify-center">-</button>
+                    <span class="text-sm font-bold text-amazon-900 w-5 text-center">${item.quantity}</span>
+                    <button onclick="changeQuantity(${item.id}, 1)" class="w-7 h-7 rounded-lg bg-amazon-600 hover:bg-amazon-700 text-white font-bold text-xs flex items-center justify-center">+</button>
+                </div>
             `;
-            cartContainer.appendChild(cartRow);
+            cartContainer.appendChild(itemEl);
         });
 
-        const finalTotal = subtotal - totalDiscount;
-
+        const total = subtotal - totalDiscount;
         subtotalEl.innerText = formatCOP(subtotal);
         discountEl.innerText = `-${formatCOP(totalDiscount)}`;
-        totalEl.innerText = formatCOP(finalTotal);
+        totalEl.innerText = formatCOP(total);
     }
 
-    // Toggle Abrir/Cerrar Modal Carrito
-    function toggleCartModal() {
-        const modal = document.getElementById('cart-modal');
-        modal.classList.toggle('hidden');
-    }
-
-    // Finalizar pedido enviando mensaje estructurado por WhatsApp
+    // Enviar pedido mediante WhatsApp
     function sendWhatsAppOrder() {
         if (cart.length === 0) {
-            alert('Tu carrito está vacío. Agrega productos antes de realizar tu pedido.');
+            alert('Añade productos a tu carrito antes de realizar el pedido.');
             return;
         }
 
-        let message = "🧀 *NUEVO PEDIDO - QUESO CAQUETEÑO D.O.P.* 🧀\n\n";
-        message += "Hola, me gustaría solicitar el siguiente pedido:\n\n";
-
-        let grandTotal = 0;
+        let message = "¡Hola! Quisiera realizar el siguiente pedido de Productos del Queso Caqueteño:\n\n";
+        let subtotal = 0;
+        let totalDiscount = 0;
 
         cart.forEach((item, index) => {
             const itemSubtotal = item.price * item.quantity;
+            subtotal += itemSubtotal;
             const hasWholesale = item.quantity >= item.minWholesale;
-            const discount = hasWholesale ? (itemSubtotal * (item.discountPercent / 100)) : 0;
-            const itemFinal = itemSubtotal - discount;
-            grandTotal += itemFinal;
+            const itemDiscount = hasWholesale ? (itemSubtotal * (item.discountPercent / 100)) : 0;
+            totalDiscount += itemDiscount;
 
             message += `${index + 1}. *${item.name}* (${item.ref})\n`;
-            message += `   • Cantidad: ${item.quantity} unidades\n`;
-            message += `   • Subtotal: ${formatCOP(itemFinal)} ${hasWholesale ? `(¡Incluye Dcto ${item.discountPercent}% Mayorista!)` : ''}\n\n`;
+            message += `   • Cantidad: ${item.quantity}\n`;
+            message += `   • Precio: ${formatCOP(itemSubtotal - itemDiscount)}${hasWholesale ? ' (con desc. al por mayor)' : ''}\n\n`;
         });
 
-        message += `------------------------------------\n`;
-        message += `*VALOR TOTAL ESTIMADO:* ${formatCOP(grandTotal)}\n\n`;
-        message += "Quedo atento a la confirmación de la orden y datos para el pago/envío. ¡Muchas gracias!";
+        const total = subtotal - totalDiscount;
+        message += `*Total estimado:* ${formatCOP(total)}\n\n`;
+        message += "Quedo atento para confirmar la disponibilidad y coordinar el envío refrigerado. ¡Muchas gracias!";
 
-        const encodedMessage = encodeURIComponent(message);
-        const phoneNumber = "573125053523"; // Teléfono oficial
-        window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        const phone = "573125053523";
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
     }
 
-    // Inicializar la carga de productos al cargar la página
-    window.onload = function() {
-        renderProducts(products);
-    };
+    // Inicializar catálogo al cargar
+    renderProducts(products);
 </script>
