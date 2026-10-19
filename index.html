@@ -1,719 +1,1220 @@
 <!-- Tailwind CSS CDN -->
+
 <script src="https://cdn.tailwindcss.com"></script>
+
 <script>
+
     tailwind.config = {
+
         theme: {
+
             extend: {
+
                 colors: {
+
                     amazon: {
+
                         50: '#f2f9f5',
+
                         100: '#e1f2e6',
+
                         600: '#1e6b3b',
+
                         700: '#16522c',
+
                         800: '#124124',
+
                         900: '#0f361f',
+
                     },
+
                     cream: {
+
                         50: '#fffdfa',
+
                         100: '#fff8ee',
+
                         200: '#fef0d7',
+
                         800: '#78350f',
+
                     },
+
                     gold: {
+
                         500: '#d97706',
+
                         600: '#b45309',
+
                     }
+
                 },
+
                 fontFamily: {
+
                     sans: ['Inter', 'system-ui', 'sans-serif'],
+
                     serif: ['Georgia', 'serif']
+
                 }
+
             }
+
         }
+
     }
+
 </script>
+
 <!-- FontAwesome Icons -->
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+
+
 <style>
+
     .gradient-hero {
+
         background: linear-gradient(rgba(15, 54, 31, 0.88), rgba(22, 82, 44, 0.88)), url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1600&q=80');
+
         background-size: cover;
+
         background-position: center;
+
     }
+
     .badge-dop {
+
         background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+
     }
+
     .custom-scrollbar::-webkit-scrollbar {
+
         width: 6px;
+
     }
+
     .custom-scrollbar::-webkit-scrollbar-track {
+
         background: #f1f1f1;
+
     }
+
     .custom-scrollbar::-webkit-scrollbar-thumb {
+
         background: #1e6b3b;
+
         border-radius: 4px;
+
     }
+
 </style>
 
 
+
 <!-- Top Announcement Bar -->
+
 <div class="bg-amazon-900 text-amber-300 text-xs sm:text-sm py-2 px-4 text-center font-medium flex items-center justify-center gap-2 border-b border-amazon-700">
+
     <i class="fa-solid fa-leaf text-emerald-400"></i>
+
     <span>100% Leche de Ganadería Silvopastoril | Sostenible y Cero Deforestación en el Caquetá</span>
+
 </div>
+
+
 
 <!-- Header / Navbar -->
+
 <header class="sticky top-0 z-40 bg-white/95 backdrop-blur shadow-sm border-b border-amazon-100">
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
         <a href="#" class="flex items-center gap-3">
+
             <div class="w-12 h-12 rounded-2xl bg-amazon-600 text-amber-300 flex items-center justify-center text-2xl font-bold shadow-md">
+
                 <i class="fa-solid fa-cheese"></i>
+
             </div>
+
             <div>
-                <span class="text-xl sm:text-2xl font-extrabold text-amazon-900 tracking-tight block leading-tight">Queso Caqueteño</span>
+
+                <span class="text-xl sm:text-2xl font-extrabold text-amazon-900 tracking-tight block leading-tight">Quesos Amazónicos</span>
+
                 <span class="text-xs text-gold-600 font-bold tracking-wider uppercase block"><i class="fa-solid fa-certificate"></i> D.O.P. Marca Colectiva QC</span>
+
             </div>
+
         </a>
 
+
+
         <div class="flex items-center gap-4">
+
             <button onclick="toggleCartModal()" class="relative bg-amazon-600 hover:bg-amazon-700 text-white p-3 rounded-xl transition duration-200 flex items-center gap-2 shadow-md">
+
                 <i class="fa-solid fa-basket-shopping text-lg"></i>
+
                 <span class="hidden md:inline font-semibold">Ver Carrito</span>
+
                 <span id="cart-count-badge" class="absolute -top-2 -right-2 bg-amber-500 text-amazon-900 font-extrabold text-xs w-6 h-6 rounded-full flex items-center justify-center border-2 border-white shadow">0</span>
+
             </button>
+
         </div>
+
     </div>
+
 </header>
 
+
+
 <!-- Frase Motivadora & Hero Section -->
+
 <section class="gradient-hero text-white py-16 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
+
     <div class="max-w-4xl mx-auto space-y-6">
+
         <div class="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 border border-amber-400/40 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide uppercase backdrop-blur-sm">
+
             <i class="fa-solid fa-award text-amber-400"></i> Primera Denominación de Origen Quesera de Colombia
+
         </div>
-        
+
+       
+
         <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-cream-50 leading-tight">
+
             El Sabor Puro y Auténtico de la Amazonía Colombiana
+
         </h1>
-        
+
+       
+
         <!-- Frase Motivadora -->
+
         <div class="p-6 rounded-2xl bg-black/30 backdrop-blur border border-white/20 max-w-3xl mx-auto shadow-2xl">
+
             <p class="text-lg sm:text-2xl text-amber-200 font-serif italic leading-relaxed">
+
                 "Cada bocado de Queso Caqueteño apoya el trabajo digno de miles de familias campesinas y protege el futuro verde de nuestros bosques amázonicos."
+
             </p>
+
             <span class="block text-xs uppercase tracking-widest text-emerald-300 font-semibold mt-2">— Tradición, Pasión y Sostenibilidad Campesina</span>
+
         </div>
+
+
 
         <div class="pt-4 flex flex-wrap justify-center gap-4">
+
             <a href="#catalogo" class="bg-amber-500 hover:bg-amber-600 text-amazon-900 font-bold px-8 py-3.5 rounded-xl transition duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 text-base">
+
                 <i class="fa-solid fa-store"></i> Explorar Catálogo Lácteo
+
             </a>
-            <a href="#video-destacado" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/30 backdrop-blur transition duration-300 flex items-center gap-2 text-base">
-                <i class="fa-solid fa-play"></i> Ver Nuestro Video
+
+            <a href="#recomendaciones" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/30 backdrop-blur transition duration-300 flex items-center gap-2 text-base">
+
+                <i class="fa-solid fa-circle-check"></i> Recomendaciones de Compra
+
             </a>
+
         </div>
+
     </div>
+
 </section>
 
-<!-- Sección de Video Destacado de YouTube -->
-<section id="video-destacado" class="py-12 bg-amazon-50 border-b border-amazon-100">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8">
-            <div class="inline-flex items-center gap-2 bg-amazon-100 text-amazon-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-2">
-                <i class="fa-brands fa-youtube text-red-600"></i> Video Institucional
-            </div>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-amazon-900">Conoce el Queso Caqueteño en Acción</h2>
-            <p class="text-gray-600 text-sm sm:text-base mt-1">Descubre la tradición, proceso y valor sostenible detrás de nuestros productos.</p>
-        </div>
-        
-        <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-black aspect-video">
-            <iframe 
-                class="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/bxD_-Tpo30A" 
-                title="Queso Caqueteño YouTube Video" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen>
-            </iframe>
-        </div>
-    </div>
-</section>
+
 
 <!-- Sección de Recomendaciones para el Comprador -->
+
 <section id="recomendaciones" class="py-16 bg-white border-b border-amazon-100">
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         <div class="text-center max-w-3xl mx-auto mb-12">
+
             <h2 class="text-2xl sm:text-4xl font-bold text-amazon-900 mb-3">Recomendaciones para el Comprador Exigente</h2>
+
             <p class="text-gray-600 text-base sm:text-lg">Razones fundamentales para elegir productos lácteos originales con sello de calidad del Caquetá.</p>
+
         </div>
+
+
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
             <!-- Razón 1 -->
+
             <div class="bg-cream-50 p-6 rounded-2xl border border-amber-200/60 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+
                 <div>
+
                     <div class="w-12 h-12 bg-amber-500/20 text-amber-800 rounded-xl flex items-center justify-center text-2xl mb-4">
+
                         <i class="fa-solid fa-certificate"></i>
+
                     </div>
+
                     <h3 class="text-lg font-bold text-amazon-900 mb-2">Denominación de Origen</h3>
+
                     <p class="text-sm text-gray-600 leading-relaxed">Sello oficial D.O.P. Garantiza técnicas únicas de hilado manual e identidad geográfica proveniente de leche de vacuño criollo caqueteño.</p>
+
                 </div>
+
             </div>
+
+
 
             <!-- Razón 2 -->
+
             <div class="bg-cream-50 p-6 rounded-2xl border border-amber-200/60 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+
                 <div>
+
                     <div class="w-12 h-12 bg-amazon-600/20 text-amazon-700 rounded-xl flex items-center justify-center text-2xl mb-4">
+
                         <i class="fa-solid fa-cow"></i>
+
                     </div>
+
                     <h3 class="text-lg font-bold text-amazon-900 mb-2">100% Leche Fresca Natural</h3>
+
                     <p class="text-sm text-gray-600 leading-relaxed">Procesados diariamente sin químicos ni conservantes artificiales, conservando la alta densidad nutricional y grasa natural de la leche.</p>
+
                 </div>
+
             </div>
+
+
 
             <!-- Razón 3 -->
+
             <div class="bg-cream-50 p-6 rounded-2xl border border-amber-200/60 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+
                 <div>
+
                     <div class="w-12 h-12 bg-emerald-500/20 text-emerald-800 rounded-xl flex items-center justify-center text-2xl mb-4">
+
                         <i class="fa-solid fa-tree"></i>
+
                     </div>
+
                     <h3 class="text-lg font-bold text-amazon-900 mb-2">Pacto Antideforestación</h3>
+
                     <p class="text-sm text-gray-600 leading-relaxed">Ganadería reconvertida a sistemas silvopastoriles. Cada compra protege bosques nativos y apoya la biodiversidad del Piedemonte.</p>
+
                 </div>
+
             </div>
+
+
 
             <!-- Razón 4 -->
+
             <div class="bg-cream-50 p-6 rounded-2xl border border-amber-200/60 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+
                 <div>
+
                     <div class="w-12 h-12 bg-orange-500/20 text-orange-800 rounded-xl flex items-center justify-center text-2xl mb-4">
+
                         <i class="fa-solid fa-hand-holding-heart"></i>
+
                     </div>
+
                     <h3 class="text-lg font-bold text-amazon-900 mb-2">Comercio Directo Campesino</h3>
+
                     <p class="text-sm text-gray-600 leading-relaxed">Comprando aquí garantizas precios justos para más de 1.200 familias ganaderas rurales en Florencia, El Paujil y San Vicente del Caguán.</p>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
 </section>
+
+
 
 <!-- Sección del Catálogo de Productos -->
+
 <section id="catalogo" class="py-16 bg-cream-50 flex-grow">
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+
             <div>
+
                 <h2 class="text-2xl sm:text-4xl font-extrabold text-amazon-900">Catálogo de Productos Lácteos</h2>
+
                 <p class="text-gray-600 mt-1">Selecciona entre quesos protegidos con D.O.P., dulces artesanales y derivados de la leche</p>
+
             </div>
 
-            <!-- Categorías / Filtros -->
+
+
+            <!-- Categorías / Filtros actualizados a los 5 productos -->
+
             <div class="flex flex-wrap gap-2" id="filter-buttons">
-                <button onclick="filterProducts('all', event)" class="filter-btn bg-amazon-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow-sm">Todos (14)</button>
-                <button onclick="filterProducts('dop', event)" class="filter-btn bg-white text-gray-700 hover:bg-amazon-100 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 transition">Quesos D.O.P.</button>
-                <button onclick="filterProducts('especiales', event)" class="filter-btn bg-white text-gray-700 hover:bg-amazon-100 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 transition">Especiales</button>
-                <button onclick="filterProducts('dulces', event)" class="filter-btn bg-white text-gray-700 hover:bg-amazon-100 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 transition">Dulces y Mantequilla</button>
-                <button onclick="filterProducts('lacteos', event)" class="filter-btn bg-white text-gray-700 hover:bg-amazon-100 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 transition">Bebidas y Cremas</button>
+
+                <button onclick="filterProducts('all')" class="filter-btn bg-amazon-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow-sm">Todos (5)</button>
+
+                <button onclick="filterProducts('dop')" class="filter-btn bg-white text-gray-700 hover:bg-amazon-100 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 transition">Quesos D.O.P.</button>
+
+                <button onclick="filterProducts('especiales')" class="filter-btn bg-white text-gray-700 hover:bg-amazon-100 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 transition">Especiales</button>
+
+                <button onclick="filterProducts('dulces')" class="filter-btn bg-white text-gray-700 hover:bg-amazon-100 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 transition">Dulces y Mantequilla</button>
+
+                <button onclick="filterProducts('lacteos')" class="filter-btn bg-white text-gray-700 hover:bg-amazon-100 px-4 py-2 rounded-lg text-sm font-semibold border border-gray-200 transition">Bebidas</button>
+
             </div>
+
         </div>
+
+
+
+        <!-- Video de YouTube Shorts Integrado -->
+
+        <div class="mb-12 bg-white rounded-2xl p-6 shadow-sm border border-amber-100 flex flex-col md:flex-row items-center gap-6">
+
+            <div class="w-full md:w-1/3 flex justify-center">
+
+                <div class="w-full max-w-[280px] aspect-[9/16] rounded-xl overflow-hidden shadow-lg border border-gray-200">
+
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/OWp8G4TlLzc" title="Queso Caqueteño - Video Promocional" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+                </div>
+
+            </div>
+
+            <div class="w-full md:w-2/3 space-y-3 text-center md:text-left">
+
+                <span class="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 bg-red-50 px-3 py-1 rounded-full border border-red-100">
+
+                    <i class="fa-brands fa-youtube"></i> Video Destacado
+
+                </span>
+
+                <h3 class="text-2xl font-bold text-amazon-900">Descubre la Tradición del Queso Caqueteño</h3>
+
+                <p class="text-gray-600 text-sm leading-relaxed">
+
+                    Mira nuestro cortometraje artesanal y conoce de cerca el proceso ancestral, el ordeño sostenible en sistemas silvopastoriles y el orgullo de nuestra denominación de origen protegida (D.O.P.).
+
+                </p>
+
+                <div class="pt-2">
+
+                    <a href="https://youtube.com/shorts/OWp8G4TlLzc?feature=share" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold text-amazon-700 hover:text-amazon-900 bg-cream-100 px-4 py-2 rounded-lg border border-amber-200 transition">
+
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Abrir video en YouTube[cite: 1]
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
 
         <!-- Grilla de productos (dinámica vía JS) -->
+
         <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+
         </div>
+
     </div>
+
 </section>
 
+
+
 <!-- Footer -->
+
 <footer class="bg-amazon-900 text-white pt-12 pb-8 border-t border-amazon-800">
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+
             <div>
+
                 <div class="flex items-center gap-3 mb-4">
+
                     <div class="w-10 h-10 rounded-xl bg-amber-500 text-amazon-900 flex items-center justify-center text-xl font-bold">
+
                         <i class="fa-solid fa-cheese"></i>
+
                     </div>
+
                     <span class="text-xl font-bold text-white">Queso Caqueteño</span>
+
                 </div>
+
                 <p class="text-amazon-100 text-sm leading-relaxed">
+
                     Iniciativa colectiva para impulsar el desarrollo económico, la identidad gastronómica y la conservación ambiental en el departamento del Caquetá.
+
                 </p>
+
             </div>
 
+
+
             <div>
+
                 <h4 class="text-amber-400 font-bold mb-4">Garantías y Certificados</h4>
+
                 <ul class="space-y-2 text-sm text-amazon-100">
+
                     <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Denominación de Origen Protegida (D.O.P.)</li>
+
                     <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Cadena de Frío Garantizada en Envíos</li>
+
                     <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Marca Colectiva QC & Pacto Caquetá</li>
+
                 </ul>
+
             </div>
 
+
+
             <div>
+
                 <h4 class="text-amber-400 font-bold mb-4">Atención al Cliente & Pedidos</h4>
+
                 <p class="text-sm text-amazon-100 mb-2"><i class="fa-brands fa-whatsapp text-green-400 text-lg mr-2"></i> Pedidos directos: +57 312 505 3523</p>
+
                 <p class="text-sm text-amazon-100 mb-2"><i class="fa-solid fa-location-dot text-amber-400 mr-2"></i> Florencia, Caquetá - Colombia</p>
+
                 <p class="text-xs text-amazon-100/70 mt-4">Envíos refrigerados directo desde la planta procesadora a todo el país.</p>
+
             </div>
+
         </div>
+
+
 
         <div class="border-t border-amazon-800 pt-6 text-center text-xs text-amazon-100/60">
+
             <p>&copy; 2026 Productos del Queso Caqueteño - Sostenibilidad y Tradición Campesina.</p>
+
         </div>
+
     </div>
+
 </footer>
 
+
+
 <!-- Modal Carrito de Compras -->
+
 <div id="cart-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex justify-end transition-opacity">
+
     <div class="bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between overflow-hidden">
+
         <!-- Modal Header -->
+
         <div class="p-4 bg-amazon-900 text-white flex items-center justify-between">
+
             <div class="flex items-center gap-2">
+
                 <i class="fa-solid fa-basket-shopping text-amber-400 text-lg"></i>
+
                 <h3 class="font-bold text-lg">Tu Carrito de Pedido</h3>
+
             </div>
+
             <button onclick="toggleCartModal()" class="text-amazon-100 hover:text-white p-2 text-xl">
+
                 <i class="fa-solid fa-xmark"></i>
+
             </button>
+
         </div>
+
+
 
         <!-- Modal Body: Items en el carrito -->
+
         <div id="cart-items" class="p-4 flex-grow overflow-y-auto space-y-4 custom-scrollbar">
+
             <!-- Se poblará vía JavaScript -->
+
         </div>
+
+
 
         <!-- Modal Footer: Resumen y Enviar Pedido -->
+
         <div class="p-4 bg-cream-100 border-t border-gray-200 space-y-3">
+
             <div class="space-y-1 text-sm">
+
                 <div class="flex justify-between text-gray-600">
+
                     <span>Subtotal:</span>
+
                     <span id="cart-subtotal" class="font-semibold">$0 COP</span>
+
                 </div>
+
                 <div class="flex justify-between text-emerald-700 font-medium">
+
                     <span>Descuentos x Mayor:</span>
+
                     <span id="cart-discount">-$0 COP</span>
+
                 </div>
+
                 <div class="flex justify-between text-lg font-bold text-amazon-900 pt-2 border-t border-gray-300">
+
                     <span>Total estimado:</span>
+
                     <span id="cart-total">$0 COP</span>
+
                 </div>
+
             </div>
+
+
 
             <div class="text-xs text-amber-900 bg-amber-100/80 border border-amber-300 p-2.5 rounded-lg flex items-start gap-2">
+
                 <i class="fa-solid fa-circle-info text-amber-700 text-base mt-0.5"></i>
+
                 <span>¡Descuentos al por mayor aplicados automáticamente al alcanzar la cantidad mínima por producto!</span>
+
             </div>
 
+
+
             <button onclick="sendWhatsAppOrder()" id="checkout-btn" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-base">
+
                 <i class="fa-brands fa-whatsapp text-xl"></i> Realizar Pedido por WhatsApp
+
             </button>
+
         </div>
+
     </div>
+
 </div>
 
+
+
 <!-- Script de Productos y Lógica del Carrito -->
+
 <script>
-    // Lista completa de 14 productos con imágenes funcionales de Unsplash de quesos e insumos lácteos reales
+
+    // Lista exacta de 5 productos seleccionados
+
     const products = [
+
         {
+
             id: 1,
+
             ref: 'REF-QC01',
+
             name: 'Quesillo Caqueteño Tradicional',
+
             category: 'dop',
+
             isDOP: true,
+
             price: 18500,
+
             minWholesale: 10,
+
             discountPercent: 15,
+
             image: 'https://i.imgur.com/QXYTLXM.jpeg',
+
             ingredients: 'Leche entera de vaca sin pasteurizar, ácido cítrico, cuajo natural de ternero, sal marina fina.',
+
             desc: 'Producto insignia D.O.P. Textura elástica, blanda e hilada con notas lácteas frescas.'
+
         },
+
         {
+
             id: 2,
+
             ref: 'REF-QC02',
-            name: 'Queso Doble Crema Caqueteño',
+
+            name: 'Queso cuajada',
+
             category: 'dop',
+
             isDOP: true,
+
             price: 19500,
+
             minWholesale: 10,
+
             discountPercent: 15,
-            image: 'https://images.unsplash.com/photo-1589883661923-6476cb0ae9f2?auto=format&fit=crop&w=600&q=80',
-            ingredients: 'Leche entera e hilada, crema de leche fresca, sal, fermentos lácticos seleccionados.',
-            desc: 'Textura suave con alto poder de fundido. Exquisito para desayunos y sándwiches gourmet.'
+
+            image: 'https://i.imgur.com/K8gGv5D.png',
+
+            ingredients: 'Leche entera e hilada,sal, fermentos lácticos seleccionados.',
+
+            desc: 'Textura suave con poca sal. Exquisito para desayunos y con panela .'
+
         },
+
         {
+
             id: 3,
-            ref: 'REF-QC03',
-            name: 'Queso Picado Salado Caqueteño',
-            category: 'dop',
-            isDOP: true,
-            price: 17000,
-            minWholesale: 10,
-            discountPercent: 12,
-            image: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=600&q=80',
-            ingredients: 'Leche entera de ordeño matutino, cuajo artesanal, abundante sal marina fina.',
-            desc: 'Tradicional queso prensado y picado a mano. Indispensable para buñuelos, pandebonos y amasijos.'
-        },
-        {
-            id: 4,
-            ref: 'REF-QC04',
-            name: 'Cuajada Fresca de Campo',
-            category: 'dop',
-            isDOP: false,
-            price: 14500,
-            minWholesale: 10,
-            discountPercent: 10,
-            image: 'https://images.unsplash.com/photo-1528975604071-b4dc52a2d18c?auto=format&fit=crop&w=600&q=80',
-            ingredients: 'Leche fresca de vaca recién ordeñada, cuajo natural, pizca de sal.',
-            desc: 'Consistencia blanda, húmeda y baja en sal. Perfecta para degustar con melaza o dulce de mora.'
-        },
-        {
-            id: 5,
+
             ref: 'REF-QC05',
+
             name: 'Queso Asado en Hoja de Plátano',
+
             category: 'especiales',
+
             isDOP: false,
+
             price: 21000,
+
             minWholesale: 8,
+
             discountPercent: 10,
-            image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80',
+
+            image: 'https://i.imgur.com/rXfCuQF.png',
+
             ingredients: 'Quesillo hilado, envoltura en hoja de plátano soasada al carbón, sal marina.',
+
             desc: 'Aromatizado artesanalmente con hoja de plátano verde, otorgando notas ahumadas únicas.'
+
         },
+
         {
-            id: 6,
-            ref: 'REF-QC06',
-            name: 'Queso con Finas Hierbas de la Selva',
-            category: 'especiales',
-            isDOP: false,
-            price: 22500,
-            minWholesale: 8,
-            discountPercent: 12,
-            image: 'https://images.unsplash.com/photo-1559561853-08451507cbe7?auto=format&fit=crop&w=600&q=80',
-            ingredients: 'Leche entera, orégano silvestre, albahaca fresca, perejil, sal.',
-            desc: 'Mezcla aromática ideal para tablas de quesos, tapas, entradas y maridaje con vino.'
-        },
-        {
-            id: 7,
-            ref: 'REF-QC07',
-            name: 'Queso con Ají Amazónico',
-            category: 'especiales',
-            isDOP: false,
-            price: 22000,
-            minWholesale: 8,
-            discountPercent: 12,
-            image: 'https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=600&q=80',
-            ingredients: 'Leche pasteurizada, ají charapita amazónico, sal fina, cuajo.',
-            desc: 'Toque picante sutil y exótico que realza los matices lácteos del queso artesanal.'
-        },
-        {
-            id: 8,
-            ref: 'REF-QC08',
-            name: 'Suero Costeño / Caqueteño',
-            category: 'lacteos',
-            isDOP: false,
-            price: 12000,
-            minWholesale: 12,
-            discountPercent: 15,
-            image: 'https://images.unsplash.com/photo-1571212515416-fef01fc43637?auto=format&fit=crop&w=600&q=80',
-            ingredients: 'Leche entera fermentada naturally, fermentos lácticos vivos, sal marina.',
-            desc: 'Textura cremosa y sabor ligeramente ácido. El acompañante perfecto de arepas y yuca cocida.'
-        },
-        {
-            id: 9,
+
+            id: 4,
+
             ref: 'REF-QC09',
+
             name: 'Mantequilla Artesanal del Piedemonte',
+
             category: 'dulces',
+
             isDOP: false,
+
             price: 25000,
+
             minWholesale: 6,
+
             discountPercent: 10,
+
             image: 'https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=600&q=80',
+
             ingredients: 'Crema de leche pura batida a mano, sal marina fina.',
+
             desc: 'Color amarillo oro por la alimentación con pastos frescos. Sabor puro e inconfundible.'
+
         },
+
         {
-            id: 10,
-            ref: 'REF-QC10',
-            name: 'Arequipe / Dulce de Leche Campesino',
-            category: 'dulces',
-            isDOP: false,
-            price: 16500,
-            minWholesale: 10,
-            discountPercent: 15,
-            image: 'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=600&q=80',
-            ingredients: 'Leche entera de vaca, azúcar morena, pizca de bicarbonato de sodio.',
-            desc: 'Cocinado en paila de cobre a fuego lento de leña para una cremosidad y color tradicional.'
-        },
-        {
-            id: 11,
+
+            id: 5,
+
             ref: 'REF-QC11',
-            name: 'Yogur Natural con Frutas Amazónicas',
+
+            name: 'Queso tipo costeño duro ',
+
             category: 'lacteos',
+
             isDOP: false,
-            price: 14000,
+
+            price: 18500,
+
             minWholesale: 12,
+
             discountPercent: 15,
-            image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80',
-            ingredients: 'Leche entera, dulzor de frutas de Arazá/Copoazú, cultivos probióticos.',
-            desc: 'Bebida láctea refrescante con trozos de frutas silvestres del Piedemonte Amazónico.'
-        },
-        {
-            id: 12,
-            ref: 'REF-QC12',
-            name: 'Cúmis Tradicional del Caquetá',
-            category: 'lacteos',
-            isDOP: false,
-            price: 9500,
-            minWholesale: 12,
-            discountPercent: 10,
-            image: 'https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&w=600&q=80',
-            ingredients: 'Leche entera pasteurizada, cultivos lácticos específicos de Cúmis, azúcar.',
-            desc: 'Sabor refrescante y dulce. Bebida artesanal perfecta para acompañar galletas o tostadas.'
-        },
-        {
-            id: 13,
-            ref: 'REF-QC13',
-            name: 'Panelitas de Leche Concentrada',
-            category: 'dulces',
-            isDOP: false,
-            price: 8500,
-            minWholesale: 15,
-            discountPercent: 20,
-            image: 'https://images.unsplash.com/photo-1582293041079-7814c2f12063?auto=format&fit=crop&w=600&q=80',
-            ingredients: 'Leche reducida, panela orgánica regional, canela fina.',
-            desc: 'Dulce típico empacado individualmente. Energía natural y deliciosa en cada porción.'
-        },
-        {
-            id: 14,
-            ref: 'REF-QC14',
-            name: 'Crema de Leche Pastelera Artesanal',
-            category: 'lacteos',
-            isDOP: false,
-            price: 11500,
-            minWholesale: 10,
-            discountPercent: 10,
-            image: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=600&q=80',
-            ingredients: 'Grasa láctea pura extraída de leche entera de primera calidad.',
-            desc: 'Excelente cuerpo y consistencia. Ideal para preparación de postres, salsas y repostería.'
+
+            image: 'https://i.imgur.com/VmDAAAP.jpeg',
+
+            ingredients: 'Leche entera de vaca sin pasteurizar,sal,cuajo .',
+
+            desc: 'leche recien ordeña,un poco de cuajo segun la cantidad de leche y prensa suficiente para su consistencia y textura .'
+
         }
+
     ];
 
+
+
     // Estado global del carrito
+
     let cart = [];
 
+
+
     // Formateador de moneda en Pesos Colombianos (COP)
+
     const formatCOP = (amount) => {
+
         return new Intl.NumberFormat('es-CO', {
+
             style: 'currency',
+
             currency: 'COP',
+
             maximumFractionDigits: 0
+
         }).format(amount);
+
     };
 
+
+
     // Renderizar Tarjetas de Productos
+
     function renderProducts(items) {
+
         const container = document.getElementById('products-grid');
+
         container.innerHTML = '';
 
+
+
         items.forEach(prod => {
+
             const card = document.createElement('div');
+
             card.className = "bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-amber-100 flex flex-col justify-between group";
-            
+
+           
+
             card.innerHTML = `
+
                 <div>
+
                     <div class="relative h-52 overflow-hidden bg-gray-100">
+
                         <img src="${prod.image}" alt="${prod.name}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+
                         ${prod.isDOP ? `
+
                             <span class="absolute top-3 left-3 badge-dop text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+
                                 <i class="fa-solid fa-certificate"></i> D.O.P. Caquetá
+
                             </span>
+
                         ` : ''}
+
                         <span class="absolute top-3 right-3 bg-amazon-900/80 text-white text-xs font-mono px-2.5 py-1 rounded-md backdrop-blur">
+
                             ${prod.ref}
+
                         </span>
+
                     </div>
+
+
 
                     <div class="p-5 space-y-3">
+
                         <h3 class="text-xl font-bold text-amazon-900 group-hover:text-amazon-600 transition leading-snug">${prod.name}</h3>
+
                         <p class="text-xs text-gray-600 leading-relaxed">${prod.desc}</p>
-                        
+
+                       
+
                         <div class="bg-cream-100/70 p-3 rounded-xl border border-cream-200">
+
                             <p class="text-[11px] font-bold text-cream-800 uppercase tracking-wider mb-1"><i class="fa-solid fa-list-ul mr-1"></i>Ingredientes:</p>
+
                             <p class="text-xs text-gray-600 italic leading-relaxed">${prod.ingredients}</p>
+
                         </div>
+
+
 
                         <div class="pt-2 border-t border-gray-100 flex items-baseline justify-between">
+
                             <div>
+
                                 <span class="text-[11px] text-gray-500 block uppercase font-medium">Precio Detalle</span>
+
                                 <span class="text-lg font-extrabold text-amazon-900">${formatCOP(prod.price)}</span>
+
                             </div>
+
                             <div class="text-right">
+
                                 <span class="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded-md border border-red-100 inline-block">
+
                                     -${prod.discountPercent}% x Mayor
+
                                 </span>
+
                                 <span class="text-[10px] text-gray-500 block mt-0.5">Desde ${prod.minWholesale} unidades</span>
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </div>
+
+
 
                 <div class="p-5 pt-0">
+
                     <button onclick="addToCart(${prod.id})" class="w-full bg-amazon-600 hover:bg-amazon-700 text-white font-bold py-2.5 px-4 rounded-xl transition duration-200 flex items-center justify-center gap-2 shadow-md active:scale-95">
+
                         <i class="fa-solid fa-cart-plus"></i> Agregar al Carrito
+
                     </button>
+
                 </div>
+
             `;
+
             container.appendChild(card);
+
         });
+
     }
+
+
 
     // Filtrar productos por categoría
-    function filterProducts(category, event) {
+
+    function filterProducts(category) {
+
         document.querySelectorAll('.filter-btn').forEach(btn => {
+
             btn.classList.remove('bg-amazon-600', 'text-white');
+
             btn.classList.add('bg-white', 'text-gray-700');
+
         });
+
         event.target.classList.remove('bg-white', 'text-gray-700');
+
         event.target.classList.add('bg-amazon-600', 'text-white');
 
+
+
         if (category === 'all') {
+
             renderProducts(products);
+
         } else {
+
             const filtered = products.filter(p => p.category === category);
+
             renderProducts(filtered);
+
         }
+
     }
 
-    // Abrir/Cerrar Modal de Carrito
-    function toggleCartModal() {
-        const modal = document.getElementById('cart-modal');
-        modal.classList.toggle('hidden');
-    }
+
 
     // Agregar ítem al carrito
+
     function addToCart(productId) {
+
         const product = products.find(p => p.id === productId);
+
         const existing = cart.find(item => item.id === productId);
 
+
+
         if (existing) {
+
             existing.quantity += 1;
+
         } else {
+
             cart.push({ ...product, quantity: 1 });
+
         }
 
+
+
         updateCartUI();
-        
+
+       
+
         // Efecto visual en la insignia del carrito
+
         const badge = document.getElementById('cart-count-badge');
+
         badge.classList.add('scale-125');
+
         setTimeout(() => badge.classList.remove('scale-125'), 200);
+
     }
+
+
 
     // Modificar cantidad en carrito
+
     function changeQuantity(productId, delta) {
+
         const item = cart.find(i => i.id === productId);
+
         if (!item) return;
 
+
+
         item.quantity += delta;
+
         if (item.quantity <= 0) {
+
             cart = cart.filter(i => i.id !== productId);
+
         }
+
         updateCartUI();
+
     }
+
+
 
     // Actualizar interfaz del carrito
+
     function updateCartUI() {
+
         const cartContainer = document.getElementById('cart-items');
+
         const cartCountBadge = document.getElementById('cart-count-badge');
+
         const subtotalEl = document.getElementById('cart-subtotal');
+
         const discountEl = document.getElementById('cart-discount');
+
         const totalEl = document.getElementById('cart-total');
 
+
+
         const totalItems = cart.reduce((sum, i) => sum + i.quantity, 0);
+
         cartCountBadge.innerText = totalItems;
 
+
+
         if (cart.length === 0) {
+
             cartContainer.innerHTML = `
+
                 <div class="text-center py-16 text-gray-400">
+
                     <i class="fa-solid fa-basket-shopping text-6xl mb-3 text-gray-300"></i>
+
                     <p class="text-base font-semibold text-gray-600">Tu carrito está vacío</p>
+
                     <p class="text-xs text-gray-400">¡Selecciona productos del Caquetá para agregarlos!</p>
+
                 </div>
+
             `;
+
             subtotalEl.innerText = formatCOP(0);
+
             discountEl.innerText = formatCOP(0);
+
             totalEl.innerText = formatCOP(0);
+
             return;
+
         }
+
+
 
         cartContainer.innerHTML = '';
+
         let subtotal = 0;
+
         let totalDiscount = 0;
+
+
 
         cart.forEach(item => {
-            const itemSubtotal = item.price * item.quantity;
+
+            const itemSubtotal = item.price
+item.quantity;
+
             subtotal += itemSubtotal;
 
+
+
+            // Verificación de descuento al por mayor
+
             const hasWholesale = item.quantity >= item.minWholesale;
-            const itemDiscount = hasWholesale ? (itemSubtotal * (item.discountPercent / 100)) : 0;
+
+            const itemDiscount = hasWholesale ? (itemSubtotal(
+item.discountPercent / 100)) : 0;
+
             totalDiscount += itemDiscount;
 
-            const itemEl = document.createElement('div');
-            itemEl.className = "flex items-center justify-between p-3 bg-cream-50 rounded-xl border border-amber-100";
-            itemEl.innerHTML = `
-                <div class="flex items-center gap-3">
-                    <img src="${item.image}" alt="${item.name}" class="w-12 h-12 rounded-lg object-cover">
-                    <div>
-                        <h4 class="text-sm font-bold text-amazon-900 leading-tight">${item.name}</h4>
-                        <span class="text-xs text-gray-500">${formatCOP(item.price)} c/u</span>
-                        ${hasWholesale ? `<span class="block text-[10px] text-emerald-700 font-bold">Desc. ${item.discountPercent}% Aplicado!</span>` : ''}
+
+
+            const itemFinal = itemSubtotal
+itemDiscount;
+
+
+
+            const cartRow = document.createElement('div');
+
+            cartRow.className = "flex gap-3 bg-cream-50 p-3 rounded-xl border border-amber-200/50 items-center";
+
+            cartRow.innerHTML = `
+
+                <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-lg">
+
+                <div class="flex-grow">
+
+                    <h4 class="font-bold text-sm text-amazon-900 leading-tight">${item.name}</h4>
+
+                    <span class="text-xs text-gray-500">${formatCOP(item.price)} c/u</span>
+
+                    ${hasWholesale ? `
+
+                        <span class="block text-[10px] text-emerald-700 font-bold"><i class="fa-solid fa-tag"></i> ¡Dcto Mayorista ${item.discountPercent}% aplicado!</span>
+
+                    ` : `
+
+                        <span class="block text-[10px] text-gray-400">Te faltan ${item.minWholesale
+item.quantity} unds para descuento</span>
+
+                    `}
+
+                    <div class="text-sm font-extrabold text-amazon-900 mt-0.5">${formatCOP(itemFinal)}</div>
+
+                </div>
+
+
+
+                <div class="flex flex-col items-center gap-1">
+
+                    <div class="flex items-center border border-gray-300 rounded-lg bg-white">
+
+                        <button onclick="changeQuantity(${item.id}, -1)" class="px-2 py-0.5 text-gray-600 hover:bg-gray-100 rounded-l-lg font-bold">-</button>
+
+                        <span class="px-2 text-xs font-bold">${item.quantity}</span>
+
+                        <button onclick="changeQuantity(${item.id}, 1)" class="px-2 py-0.5 text-gray-600 hover:bg-gray-100 rounded-r-lg font-bold">+</button>
+
                     </div>
+
                 </div>
-                <div class="flex items-center gap-2">
-                    <button onclick="changeQuantity(${item.id}, -1)" class="w-7 h-7 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold text-xs flex items-center justify-center">-</button>
-                    <span class="text-sm font-bold text-amazon-900 w-5 text-center">${item.quantity}</span>
-                    <button onclick="changeQuantity(${item.id}, 1)" class="w-7 h-7 rounded-lg bg-amazon-600 hover:bg-amazon-700 text-white font-bold text-xs flex items-center justify-center">+</button>
-                </div>
+
             `;
-            cartContainer.appendChild(itemEl);
+
+            cartContainer.appendChild(cartRow);
+
         });
 
-        const total = subtotal - totalDiscount;
+
+
+        const finalTotal = subtotal
+totalDiscount;
+
+
+
         subtotalEl.innerText = formatCOP(subtotal);
+
         discountEl.innerText = `-${formatCOP(totalDiscount)}`;
-        totalEl.innerText = formatCOP(total);
+
+        totalEl.innerText = formatCOP(finalTotal);
+
     }
 
-    // Enviar pedido mediante WhatsApp
+
+
+    // Toggle Abrir/Cerrar Modal Carrito
+
+    function toggleCartModal() {
+
+        const modal = document.getElementById('cart-modal');
+
+        modal.classList.toggle('hidden');
+
+    }
+
+
+
+    // Finalizar pedido enviando mensaje estructurado por WhatsApp
+
     function sendWhatsAppOrder() {
+
         if (cart.length === 0) {
-            alert('Añade productos a tu carrito antes de realizar el pedido.');
+
+            alert('Tu carrito está vacío. Agrega productos antes de realizar tu pedido.');
+
             return;
+
         }
 
-        let message = "¡Hola! Quisiera realizar el siguiente pedido de Productos del Queso Caqueteño:\n\n";
-        let subtotal = 0;
-        let totalDiscount = 0;
+
+
+        let message = "🧀 *NUEVO PEDIDO - QUESO CAQUETEÑO D.O.P.* 🧀\n\n";
+
+        message += "Hola, me gustaría solicitar el siguiente pedido:\n\n";
+
+
+
+        let grandTotal = 0;
+
+
 
         cart.forEach((item, index) => {
-            const itemSubtotal = item.price * item.quantity;
-            subtotal += itemSubtotal;
-            const hasWholesale = item.quantity >= item.minWholesale;
-            const itemDiscount = hasWholesale ? (itemSubtotal * (item.discountPercent / 100)) : 0;
-            totalDiscount += itemDiscount;
 
-            message += `${index + 1}. *${item.name}* (${item.ref})\n`;
-            message += `   • Cantidad: ${item.quantity}\n`;
-            message += `   • Precio: ${formatCOP(itemSubtotal - itemDiscount)}${hasWholesale ? ' (con desc. al por mayor)' : ''}\n\n`;
+            const itemSubtotal = item.price
+item.quantity;
+
+            const hasWholesale = item.quantity >= item.minWholesale;
+
+            const discount = hasWholesale ? (itemSubtotal(
+item.discountPercent / 100)) : 0;
+
+            const itemFinal = itemSubtotal
+discount;
+
+            grandTotal += itemFinal;
+
+
+
+            message += `${index + 1}. *${item.name}(
+${item.ref})\n`;
+
+            message += `   • Cantidad: ${item.quantity} unidades\n`;
+
+            message += `   • Subtotal: ${formatCOP(itemFinal)} ${hasWholesale ? `(¡Incluye Dcto ${item.discountPercent}% Mayorista!)` : ''}\n\n`;
+
         });
 
-        const total = subtotal - totalDiscount;
-        message += `*Total estimado:* ${formatCOP(total)}\n\n`;
-        message += "Quedo atento para confirmar la disponibilidad y coordinar el envío refrigerado. ¡Muchas gracias!";
 
-        const phone = "573125053523";
-        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-        window.open(url, '_blank');
-    }
 
-    // Inicializar catálogo al cargar
-    renderProducts(products);
-</script>
+        message += `------------------------------------\n`;
+
+        message += `*VALOR TOTAL ESTIMADO:* ${formatCOP(grandTotal)}\n\n`;
+
+        message += "Quedo atento a la confirmación de la orden y datos para el pago/envío. ¡Muchas gracias!";
+
+
+
+        const encodedMessage = encodeURIComponent(message);
+
+        const phoneNumber = "573125053523";
+
+        window.o
